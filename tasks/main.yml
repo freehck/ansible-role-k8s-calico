@@ -1,0 +1,26 @@
+---
+
+#- name: deploy calico
+#  k8s:
+#    state: "present"
+#    definition: "{{ lookup('file, role_path+'/files/calico-'+k8s_calico_ver+'.yml' }}"
+
+# ^^^ this doesn't work ^^^
+# k8s module cannot load multiple definitions in file from ansible controller
+# so let's user a workaround: copy this file to host, and then feed kubectl with it
+# https://github.com/ansible/ansible/issues/40684
+
+- name: copy k8s definition file to cluster
+  copy:
+    src: "{{ item }}"
+    dest: "/root/{{ item }}"
+  with_items:
+    - "calico-{{ k8s_calico_ver }}.yml"
+
+- name: Apply Drupal 8 Kubernetes services to the cluster.
+  command: kubectl apply -f /root/{{ item }}
+  with_items:
+    - "calico-{{ k8s_calico_ver }}.yml"
+  register: k8s_calico_definition_apply
+  changed_when: "'created' in k8s_calico_definition_apply.stdout"
+  run_once: true

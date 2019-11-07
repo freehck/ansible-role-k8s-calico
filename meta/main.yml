@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Dmitrii Kashin
+  description: install calico cni services in k8s
+  role_name: k8s_calico
+  license: MIT
+
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+
+  galaxy_tags:
+    - kubernetes
+    - k8s
+    - calico
+
+dependencies: []
+# this role suggests it's applied to host with initialized k8s cluster

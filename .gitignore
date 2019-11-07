@@ -1,0 +1,6 @@
+*~
+vagrant/.vagrant
+vagrant/retry
+vagrant/roles/*
+!vagrant/roles/freehck.k8s_calico
+**/*.log

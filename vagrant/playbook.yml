@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  become: true
+  roles:
+    - role: freehck.k8s_base
+    - role: freehck.k8s_init
+    - role: freehck.k8s_calico
