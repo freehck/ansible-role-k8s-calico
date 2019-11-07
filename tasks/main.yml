@@ -1,9 +1,9 @@
 ---
 
-#- name: deploy calico
-#  k8s:
-#    state: "present"
-#    definition: "{{ lookup('file, role_path+'/files/calico-'+k8s_calico_ver+'.yml' }}"
+# - name: deploy calico
+#   k8s:
+#     state: "present"
+#     definition: "{{ lookup('file, role_path+'/files/calico-'+k8s_calico_ver+'.yml' }}"
 
 # ^^^ this doesn't work ^^^
 # k8s module cannot load multiple definitions in file from ansible controller
@@ -12,7 +12,7 @@
 
 - name: copy k8s definition file to cluster
   copy:
-    src: "{{ item }}"
+    src: "{{ item }}.original"
     dest: "/root/{{ item }}"
   with_items:
     - "calico-{{ k8s_calico_ver }}.yml"
