@@ -5,4 +5,7 @@
   roles:
     - role: freehck.k8s_base
     - role: freehck.k8s_init
+      when: k8s_is_master | default(false)
+    - role: freehck.k8s_join
     - role: freehck.k8s_calico
+      when: k8s_is_master | default(false)

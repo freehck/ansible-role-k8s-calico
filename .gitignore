@@ -1,6 +1,7 @@
 *~
-vagrant/.vagrant
-vagrant/retry
-vagrant/roles/*
-!vagrant/roles/freehck.k8s_calico
+tests/.vagrant
+tests/retry
+tests/provision/roles/*
+!tests/provision/roles/freehck.k8s_calico
 **/*.log
+tests/provision/k8s-join-command
