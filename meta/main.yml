@@ -17,9 +17,4 @@ galaxy_info:
     - k8s
     - calico
 
-dependencies:
-  - role: freehck.k8s_app
-    vars:
-      k8s_app_download_definition: "{{ k8s_calico_download_definition }}"
-      k8s_app_definition_url: "{{ k8s_calico_definition_url }}"
-      k8s_app_definition_filename: "{{ k8s_calico_definition_filename }}"
+dependencies: []
