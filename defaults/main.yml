@@ -1,7 +1,5 @@
 ---
 k8s_calico_ver: "v3.10"
-k8s_calico_download_definition: false
-# k8s_calico_definition_url: ""
 k8s_calico_definition_filename: "calico-{{ k8s_calico_ver }}.yml"
 k8s_calico_definition_dir: "/root"
 
