@@ -4,3 +4,4 @@ k8s_calico_definition_filename: "calico-{{ k8s_calico_ver }}.yml"
 k8s_calico_definition_dir: "/root"
 
 k8s_calico_autodetection_method: "first-found"
+k8s_calico_pod_network_cidr: "192.168.0.0/16"
